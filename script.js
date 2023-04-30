@@ -1,33 +1,45 @@
 
-class Food {
-    constructor(name, calories) {
-      this.name = name;
-      this.calories = parseInt(calories);
-    }
-  }
-  
-  const foodArray = [
-    new Food("Granola", 100),
-    new Food("Yogurt", 300),
-  ];
-  
-  const form = document.querySelector("form");
-  const foodInput = document.getElementById("foodName");
-  const calorieInput = document.getElementById("calories");
-  const calorieDisplay = document.getElementById("calorieDisplay");
-  
-  
-  form.addEventListener("submit", (event) => {
-   
-    event.preventDefault();
+function Food(name, calories) {
+  this.name = name;
+  this.calories = parseInt(calories);
+}
 
-    const food = new Food(foodInput.value, calorieInput.value);
-    foodArray.push(food);
+
+const foodArray = [];
+
+
+foodArray.push(new Food("Granola", 100));
+foodArray.push(new Food("Yogurt", 300));
+
+
+const form = document.querySelector("form");
+const foodInput = document.getElementById("foodName");
+const calorieInput = document.getElementById("calories");
+const caloriesDisplay = document.getElementById("caloriesDisplay");
+
+
+function handleFormSubmit(event) {
+ 
+  event.preventDefault();
+
+ 
+  const food = new Food(foodInput.value, calorieInput.value);
+  foodArray.push(food);
+
   
-    console.log(foodArray);
-    const totalCalories = foodArray.reduce((sum, food) => sum + food.calories, 0);
-    caloriesDisplay.textContent = `Total calories: ${totalCalories}`;
-    foodInput.value = "";
-    calorieInput.value = "";
-  });
+  console.log(foodArray);
+
   
+  let totalCalories = 0;
+  for (let i = 0; i < foodArray.length; i++) {
+    totalCalories += foodArray[i].calories;
+  }
+  caloriesDisplay.textContent = `Total calories: ${totalCalories}`;
+
+  
+  foodInput.value = "";
+  calorieInput.value = "";
+}
+
+
+form.addEventListener("submit", handleFormSubmit);
