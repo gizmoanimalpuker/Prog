@@ -1,4 +1,5 @@
 
+
 function Food(name, calories) {
   this.name = name;
   this.calories = parseInt(calories);
