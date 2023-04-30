@@ -1,6 +1,16 @@
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 100%;
+  background-color: rgb(184, 86, 6);
+  width: 200px;
+  margin: 0 auto;
+  border: 8px solid rgb(239, 239, 241);
+  padding: 1em;
+}
 h1 {
-    font-size: 2em;
-    text-align: center;
+	font-size: 140%;
+	margin-top: .5em;
   }
   
   form {
